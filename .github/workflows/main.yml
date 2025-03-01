@@ -1,0 +1,16 @@
+name: Sync to Gist
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  sync-to-gist:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          git clone https://github.com/nhatkha1407/clean-your-mac.git repo
+          cd repo
+          echo '{"files":{"README.md":{"content":'"$(cat README.md | jq -Rsa .)"'}, "clean-your-mac.py":{"content":'"$(cat scripts/clean.py | jq -Rsa .)"'}}' > gist.json
+          curl -X PATCH -H "Authorization: token ${{ secrets.GIST_TOKEN }}" -H "Accept: application/vnd.github.v3+json" -d @gist.json "https://api.github.com/gists/5079867caede3c39c39d8c67a5ed9cb0"
