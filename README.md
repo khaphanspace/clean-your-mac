@@ -18,11 +18,11 @@ This script permanently deletes files. Always backup important data before runni
 
 #### Run directly from URL
 ```bash
-curl -s https://gist.githubusercontent.com/nhatkha1407/5079867caede3c39c39d8c67a5ed9cb0/raw/clean-your-mac.py | sudo python3
+curl -s https://gist.githubusercontent.com/khaphanspace/5079867caede3c39c39d8c67a5ed9cb0/raw/be85948503eda886031794d3cd2e43946691a5d7/clean-your-mac.py | sudo python3
 ```
 #### Or clone and run
 ```bash
-git clone https://github.com/nhatkha1407/clean-your-mac.git
+git clone https://github.com/khaphanspace/clean-your-mac.git
 cd clean-your-mac
 
 sudo ./scripts/clean.py
